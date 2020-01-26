@@ -13,9 +13,21 @@ function Employee(name, id, role) {
 //Functions
 async function init() {
     try {
+        //Gets Employee class info
         let { name } = await getName();
         let { id } = await getId();
         let { role } = await getRole();
+        //Checks what role was chosen
+        if (role === "Manager") {
+            console.log("Chose Manager");
+        }
+        else if (role === "Engineer") {
+            console.log("Chose Engineer");
+        }
+        else if (role === "Intern") {
+            console.log("Chose Intern");
+        }
+        
     }
     catch (err) {
         console.log(err);
@@ -42,7 +54,7 @@ function getRole() {
     const role = inquirer.prompt([{
         type: 'list',
         name: 'role',
-        message: "What is the employee's role?",
+        message: "What is the employee's role? (Use arrow keys)",
         choices: ['Manager', 'Engineer', 'Intern']
     }]);
     return role;
