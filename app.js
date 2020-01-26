@@ -17,17 +17,23 @@ async function init() {
         let { name } = await getName();
         let { id } = await getId();
         let { role } = await getRole();
-        //Checks what role was chosen
+        //Checks what role was chosen and gathers role specific inputs
         if (role === "Manager") {
-            console.log("Chose Manager");
+            let { office } = await getOffice();
+            console.log(office);
+            let manager = new Employee(name, id, role, office);
+            console.log(manager);
         }
         else if (role === "Engineer") {
-            console.log("Chose Engineer");
+            let { username } = await getUsername();
+            let engineer = new Employee(name, id, role, username);
+            console.log(engineer);
         }
         else if (role === "Intern") {
-            console.log("Chose Intern");
+            let { school } = await getSchool();
+            let intern = new Employee(name, id, role, school);
+            console.log(intern);
         }
-        
     }
     catch (err) {
         console.log(err);
