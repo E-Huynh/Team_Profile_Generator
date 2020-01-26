@@ -1,29 +1,14 @@
 //NPM
 const inquirer = require("inquirer");
+const Manager = require("./lib/manager.js");
+const Engineer = require("./lib/engineer.js");
+const Intern = require("./lib/intern.js");
+
 //Declare variables
-let teamArr = [];
+const teamArr = [];
+
 //Call functions
 init();
-
-//constructors
-function Manager(name, id, role, office) {
-    this.name = name;
-    this.id = id;
-    this.role = role;
-    this.office = office;
-}
-function Engineer(name, id, role, username) {
-    this.name = name;
-    this.id = id;
-    this.role = role;
-    this.username = username;
-}
-function Intern(name, id, role, school) {
-    this.name = name;
-    this.id = id;
-    this.role = role;
-    this.school = school;
-}
 
 //Functions
 async function init() {
