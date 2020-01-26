@@ -1,5 +1,8 @@
 const inquirer = require("inquirer");
 
+//Call functions
+init();
+
 //constructors
 function Employee(name, id, role) {
     this.name = name;
@@ -7,9 +10,19 @@ function Employee(name, id, role) {
     this.role = role;
 }
 
-
-//functions
-function name() {
+//Functions
+async function init() {
+    try {
+        let { name } = await getName();
+        let { id } = await getId();
+        let { role } = await getRole();
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
+//Employee properties
+function getName() {
     const name = inquirer.prompt([{
         type: "input",
         message: "Enter employee's full name.",
