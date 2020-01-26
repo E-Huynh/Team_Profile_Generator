@@ -1,43 +1,64 @@
+//NPM
 const inquirer = require("inquirer");
-
+//Declare variables
+let teamArr = [];
 //Call functions
 init();
 
 //constructors
-function Employee(name, id, role) {
+function Manager(name, id, role, office) {
     this.name = name;
     this.id = id;
     this.role = role;
+    this.office = office;
+}
+function Engineer(name, id, role, username) {
+    this.name = name;
+    this.id = id;
+    this.role = role;
+    this.username = username;
+}
+function Intern(name, id, role, school) {
+    this.name = name;
+    this.id = id;
+    this.role = role;
+    this.school = school;
 }
 
 //Functions
 async function init() {
-    try {
-        //Gets Employee class info
-        let { name } = await getName();
-        let { id } = await getId();
-        let { role } = await getRole();
-        //Checks what role was chosen and gathers role specific inputs
-        if (role === "Manager") {
-            let { office } = await getOffice();
-            console.log(office);
-            let manager = new Employee(name, id, role, office);
-            console.log(manager);
+    let check = "Yes";
+    do{
+        try {
+            //Gets Employee class info
+            let { name } = await getName();
+            let { id } = await getId();
+            let { role } = await getRole();
+            //Checks what role was chosen and gathers role specific inputs
+            let secondaryInput;
+            if (role === "Manager") {
+                let secondaryInput = await getOffice();
+                let manager = new Manager(name, id, role, secondaryInput.office);
+                teamArr.push(manager);
+            }
+            else if (role === "Engineer") {
+                let secondaryInput = await getUsername();
+                let engineer = new Engineer(name, id, role, secondaryInput.username);
+                teamArr.push(engineer);
+            }
+            else if (role === "Intern") {
+                let secondaryInput = await getSchool();
+                let intern = new Intern(name, id, role, secondaryInput.school);
+                teamArr.push(intern);
+            }
+            console.log("teamArr: ", teamArr);
+            check = await addEmployee();
         }
-        else if (role === "Engineer") {
-            let { username } = await getUsername();
-            let engineer = new Employee(name, id, role, username);
-            console.log(engineer);
-        }
-        else if (role === "Intern") {
-            let { school } = await getSchool();
-            let intern = new Employee(name, id, role, school);
-            console.log(intern);
-        }
+        catch (err) {
+            console.log(err);
+        }    
     }
-    catch (err) {
-        console.log(err);
-    }
+    while(check.anotherEmployee === "Yes");
 };
 //Employee properties
 function getName() {
@@ -60,7 +81,7 @@ function getRole() {
     const role = inquirer.prompt([{
         type: 'list',
         name: 'role',
-        message: "What is the employee's role? (Use arrow keys)",
+        message: "What is the employee's role?",
         choices: ['Manager', 'Engineer', 'Intern']
     }]);
     return role;
@@ -91,4 +112,14 @@ function getSchool() {
         name: "school"
     }]);
     return school;
+};
+//While loop check
+function addEmployee() {
+    const anotherEmployee = inquirer.prompt([{
+        type: 'list',
+        name: 'anotherEmployee',
+        message: "Add another employee?",
+        choices: ['Yes', 'No']
+    }]);
+    return anotherEmployee;
 };
