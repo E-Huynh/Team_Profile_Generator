@@ -1,6 +1,12 @@
 const inquirer = require("inquirer");
 
 //constructors
+function Employee(name, id, role) {
+    this.name = name;
+    this.id = id;
+    this.role = role;
+}
+
 
 //functions
 function name() {
@@ -19,6 +25,16 @@ function getId() {
     }]);
     return id;
 };
+function getRole() {
+    const role = inquirer.prompt([{
+        type: 'list',
+        name: 'role',
+        message: "What is the employee's role?",
+        choices: ['Manager', 'Engineer', 'Intern']
+    }]);
+    return role;
+};
+//Manager properties
 function getOffice() {
     const office = inquirer.prompt([{
         type: "input",
@@ -27,6 +43,7 @@ function getOffice() {
     }]);
     return office;
 };
+//Engineer properties
 function getUsername() {
     const username = inquirer.prompt([{
         type: "input",
@@ -35,6 +52,7 @@ function getUsername() {
     }]);
     return username;
 };
+//Intern properties
 function getSchool() {
     const school = inquirer.prompt([{
         type: "input",
