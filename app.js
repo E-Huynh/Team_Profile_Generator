@@ -24,7 +24,9 @@ async function init() {
             let secondaryInput;
             if (role === "Manager") {
                 let secondaryInput = await inputOffice();
+                console.log(secondaryInput.office);
                 let manager = new Manager(name, id, email, secondaryInput.office);
+                console.log(secondaryInput.office);
                 teamArr.push(manager);
             }
             else if (role === "Engineer") {
