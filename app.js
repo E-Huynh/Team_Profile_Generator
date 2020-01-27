@@ -16,28 +16,28 @@ async function init() {
     do{
         try {
             //Gets Employee class info
-            let { name } = await getName();
-            let { id } = await getId();
-            let { role } = await getRole();
+            let { name } = await inputName();
+            let { id } = await inputId();
+            let { role } = await inputRole();
             //Checks what role was chosen and gathers role specific inputs
             let secondaryInput;
             if (role === "Manager") {
-                let secondaryInput = await getOffice();
+                let secondaryInput = await inputOffice();
                 let manager = new Manager(name, id, secondaryInput.office);
                 teamArr.push(manager);
                 console.log(manager.getName());
                 console.log(manager.getId());
                 console.log(manager.getRole());
-                console.log(manager.getOfficeNum());
+                console.log(manager.getOffice());
             }
             else if (role === "Engineer") {
-                let secondaryInput = await getUsername();
-                let engineer = new Engineer(name, id, role, secondaryInput.username);
+                let secondaryInput = await inputUsername();
+                let engineer = new Engineer(name, id, secondaryInput.username);
                 teamArr.push(engineer);
             }
             else if (role === "Intern") {
-                let secondaryInput = await getSchool();
-                let intern = new Intern(name, id, role, secondaryInput.school);
+                let secondaryInput = await inputSchool();
+                let intern = new Intern(name, id, secondaryInput.school);
                 teamArr.push(intern);
             }
             console.log("teamArr: ", teamArr);
@@ -50,7 +50,7 @@ async function init() {
     while(check.anotherEmployee === "Yes");
 };
 //Employee properties
-function getName() {
+function inputName() {
     const name = inquirer.prompt([{
         type: "input",
         message: "Enter employee's full name.",
@@ -58,7 +58,7 @@ function getName() {
     }]);
     return name;
 };
-function getId() {
+function inputId() {
     const id = inquirer.prompt([{
         type: "input",
         message: "Enter employee's ID.",
@@ -66,7 +66,7 @@ function getId() {
     }]);
     return id;
 };
-function getRole() {
+function inputRole() {
     const role = inquirer.prompt([{
         type: 'list',
         name: 'role',
@@ -76,7 +76,7 @@ function getRole() {
     return role;
 };
 //Manager properties
-function getOffice() {
+function inputOffice() {
     const office = inquirer.prompt([{
         type: "input",
         message: "Enter employee's office number.",
@@ -85,7 +85,7 @@ function getOffice() {
     return office;
 };
 //Engineer properties
-function getUsername() {
+function inputUsername() {
     const username = inquirer.prompt([{
         type: "input",
         message: "Enter employee's Github Username.",
@@ -94,7 +94,7 @@ function getUsername() {
     return username;
 };
 //Intern properties
-function getSchool() {
+function inputSchool() {
     const school = inquirer.prompt([{
         type: "input",
         message: "Enter employee's school.",
