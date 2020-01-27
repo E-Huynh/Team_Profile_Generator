@@ -18,23 +18,24 @@ async function init() {
             //Gets Employee class info
             let { name } = await inputName();
             let { id } = await inputId();
-                //email input for testing?
+            let { email } = await inputEmail();
+            console.log(email);
             let { role } = await inputRole();
             //Checks what role was chosen and gathers role specific inputs
             let secondaryInput;
             if (role === "Manager") {
                 let secondaryInput = await inputOffice();
-                let manager = new Manager(name, id, secondaryInput.office);
+                let manager = new Manager(name, id, email, secondaryInput.office);
                 teamArr.push(manager);
             }
             else if (role === "Engineer") {
                 let secondaryInput = await inputUsername();
-                let engineer = new Engineer(name, id, secondaryInput.username);
+                let engineer = new Engineer(name, id, email, secondaryInput.username);
                 teamArr.push(engineer);
             }
             else if (role === "Intern") {
                 let secondaryInput = await inputSchool();
-                let intern = new Intern(name, id, secondaryInput.school);
+                let intern = new Intern(name, id, email, secondaryInput.school);
                 teamArr.push(intern);
             }
             console.log("teamArr: ", teamArr);
@@ -62,6 +63,14 @@ function inputId() {
         name: "id"
     }]);
     return id;
+};
+function inputEmail() {
+    const email = inquirer.prompt([{
+        type: "input",
+        message: "Enter employee's email.",
+        name: "email"
+    }]);
+    return email;
 };
 function inputRole() {
     const role = inquirer.prompt([{
