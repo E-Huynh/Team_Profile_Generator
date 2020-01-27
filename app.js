@@ -23,8 +23,12 @@ async function init() {
             let secondaryInput;
             if (role === "Manager") {
                 let secondaryInput = await getOffice();
-                let manager = new Manager(name, id, role, secondaryInput.office);
+                let manager = new Manager(name, id, secondaryInput.office);
                 teamArr.push(manager);
+                console.log(manager.getName());
+                console.log(manager.getId());
+                console.log(manager.getRole());
+                console.log(manager.getOfficeNum());
             }
             else if (role === "Engineer") {
                 let secondaryInput = await getUsername();
