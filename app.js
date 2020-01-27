@@ -19,7 +19,6 @@ async function init() {
             let { name } = await inputName();
             let { id } = await inputId();
             let { email } = await inputEmail();
-            console.log(email);
             let { role } = await inputRole();
             //Checks what role was chosen and gathers role specific inputs
             let secondaryInput;
