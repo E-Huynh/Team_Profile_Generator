@@ -34,11 +34,19 @@ async function init() {
                 let secondaryInput = await inputUsername();
                 let engineer = new Engineer(name, id, secondaryInput.username);
                 teamArr.push(engineer);
+                console.log(engineer.getName());
+                console.log(engineer.getId());
+                console.log(engineer.getRole());
+                console.log(engineer.getGithub());
             }
             else if (role === "Intern") {
                 let secondaryInput = await inputSchool();
                 let intern = new Intern(name, id, secondaryInput.school);
                 teamArr.push(intern);
+                console.log(intern.getName());
+                console.log(intern.getId());
+                console.log(intern.getRole());
+                console.log(intern.getSchool());
             }
             console.log("teamArr: ", teamArr);
             check = await addEmployee();
