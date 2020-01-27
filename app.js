@@ -18,6 +18,7 @@ async function init() {
             //Gets Employee class info
             let { name } = await inputName();
             let { id } = await inputId();
+                //email input for testing?
             let { role } = await inputRole();
             //Checks what role was chosen and gathers role specific inputs
             let secondaryInput;
@@ -25,28 +26,16 @@ async function init() {
                 let secondaryInput = await inputOffice();
                 let manager = new Manager(name, id, secondaryInput.office);
                 teamArr.push(manager);
-                console.log(manager.getName());
-                console.log(manager.getId());
-                console.log(manager.getRole());
-                console.log(manager.getOffice());
             }
             else if (role === "Engineer") {
                 let secondaryInput = await inputUsername();
                 let engineer = new Engineer(name, id, secondaryInput.username);
                 teamArr.push(engineer);
-                console.log(engineer.getName());
-                console.log(engineer.getId());
-                console.log(engineer.getRole());
-                console.log(engineer.getGithub());
             }
             else if (role === "Intern") {
                 let secondaryInput = await inputSchool();
                 let intern = new Intern(name, id, secondaryInput.school);
                 teamArr.push(intern);
-                console.log(intern.getName());
-                console.log(intern.getId());
-                console.log(intern.getRole());
-                console.log(intern.getSchool());
             }
             console.log("teamArr: ", teamArr);
             check = await addEmployee();
