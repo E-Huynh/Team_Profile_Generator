@@ -1,4 +1,5 @@
-function createMainHTML(card){
+//Pass the message HTML from createMessage fx to add each member to the page.
+function createMainHTML(message){
     return `<!DOCTYPE html>
     <html>
       <head>
@@ -25,22 +26,23 @@ function createMainHTML(card){
             </div>
         </section>
         <section>
-            ${ card }
+            ${ message }
         </section>
       </body>
     </html>`  
 };
 
-function createMessage(info){
+//Pass an object from teamArr using a loop to generated the message HTML for each obj.
+function createMessage(obj){
     return `<article class="message">
   <div class="message-header">
-    <p>${ name }</p>
+    <p>${ obj.ame }</p>
     <button class="delete" aria-label="delete"></button>
   </div>
   <div class="message-body">
-    <p>${ role }</p>
-    <p>${ id }</p>
-    <p>${ email }</p>
+    <p>${ obj.role }</p>
+    <p>${ obj.id }</p>
+    <p>${ obj.email }</p>
   </div>
 </article>`
 }
