@@ -36,7 +36,7 @@ function createMainHTML(message){
 function createMessage(obj){
     return `<article class="message">
   <div class="message-header">
-    <p>${ obj.ame }</p>
+    <p>${ obj.name }</p>
     <button class="delete" aria-label="delete"></button>
   </div>
   <div class="message-body">
