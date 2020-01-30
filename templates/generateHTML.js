@@ -26,7 +26,9 @@ function createMainHTML(message){
             </div>
         </section>
         <section>
-            ${ message }
+            <div class="columns is-multiline is-4">
+                ${ message }
+            </div>
         </section>
       </body>
     </html>`  
@@ -34,17 +36,19 @@ function createMainHTML(message){
 
 //Pass an object from teamArr using a loop to generated the message HTML for each obj.
 function createMessage(obj){
-    return `<article class="message">
-  <div class="message-header">
-    <p>${ obj.name }</p>
-    <button class="delete" aria-label="delete"></button>
-  </div>
-  <div class="message-body">
-    <p>${ obj.role }</p>
-    <p>${ obj.id }</p>
-    <p>${ obj.email }</p>
-  </div>
-</article>`
+    return `<div class="column is-one-third">
+    <article class="message">
+        <div class="message-header">
+          <p>${ obj.name }</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          <p>${ obj.role }</p>
+          <p>${ obj.id }</p>
+          <p>${ obj.email }</p>
+        </div>
+      </article>
+</div>`
 }
 
 module.exports = generateHTML;
