@@ -130,17 +130,13 @@ function iterateArr(arr) {
     }
     console.log(teamHTML);
 };
-//assigns individual teamHtml to mainHTML and creates a .html file
+//assigns individual teamHtml to mainHTML and creates a .html file in outputs folder
 function createPage(html) {
     let finalHTML = GenerateHTML.createMainHTML(html);
     fs.writeFile("./output/teamProfile.html", finalHTML, function(err) {
-
         if (err) {
           return console.log(err);
-        }
-      
-        console.log("Succesfully create html");
-      
-      });
-      
+        }     
+        console.log("Succesfully create html");   
+      });   
 }
