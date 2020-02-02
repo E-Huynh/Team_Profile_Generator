@@ -133,7 +133,7 @@ function iterateArr(arr) {
 //assigns individual teamHtml to mainHTML and creates a .html file
 function createPage(html) {
     let finalHTML = GenerateHTML.createMainHTML(html);
-    fs.writeFile("teamProfile.html", finalHTML, function(err) {
+    fs.writeFile("./output/teamProfile.html", finalHTML, function(err) {
 
         if (err) {
           return console.log(err);
