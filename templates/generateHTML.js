@@ -39,8 +39,8 @@ function createMessage(obj){
     return `<div class="column is-one-third">
     <article class="message">
         <div class="message-header is-block">
-          <h1>${ obj.name }</h1>
-          <h2>${ obj.role }</h2>
+          <p class="is-size-3">${ obj.name }</p>
+          <p class="is-size-5">${ obj.role }</p>
         </div>
         <div class="message-body">
           <p>ID: ${ obj.id }</p>
