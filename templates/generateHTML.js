@@ -47,6 +47,8 @@ function createMessage(obj){
         case "Intern":
             specificInfo = `School: ${ obj.getSchool() }`;
             break;
+        default:
+            console.log("No role found");
     }
     return `<div class="column is-one-third">
     <article class="message">

@@ -55,7 +55,15 @@ function inputName() {
     const name = inquirer.prompt([{
         type: "input",
         message: "Enter employee's full name.",
-        name: "name"
+        name: "name",
+        // validate: function validateName(name){
+        //     switch(name) {
+        //         case "":
+        //             return name !== '';
+        //         default:
+        //             break;
+        //     }
+        // }
     }]);
     return name;
 };
