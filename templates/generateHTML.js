@@ -51,4 +51,5 @@ function createMessage(obj){
 </div>`
 }
 
-module.exports = generateHTML;
+module.exports = createMainHTML;
+module.exports = createMessage;

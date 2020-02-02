@@ -3,6 +3,7 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
+// const GenerateHTML = require("./templates/generateHTML.js");
 
 //Declare variables
 const teamArr = [];
@@ -10,7 +11,14 @@ const teamArr = [];
 //Call functions
 init();
 
+
 //Functions
+function iterateArr(arr) {
+    for( let i = 0; i < arr.length; i++) {
+        console.log("iterateArr fx:");
+        console.log(arr[i]);
+    }
+}
 async function init() {
     let check = "Yes";
     do{
@@ -24,9 +32,7 @@ async function init() {
             let secondaryInput;
             if (role === "Manager") {
                 let secondaryInput = await inputOffice();
-                console.log(secondaryInput.office);
                 let manager = new Manager(name, id, email, secondaryInput.office);
-                console.log(secondaryInput.office);
                 teamArr.push(manager);
             }
             else if (role === "Engineer") {
@@ -39,7 +45,6 @@ async function init() {
                 let intern = new Intern(name, id, email, secondaryInput.school);
                 teamArr.push(intern);
             }
-            console.log("teamArr: ", teamArr);
             check = await addEmployee();
         }
         catch (err) {
@@ -47,6 +52,7 @@ async function init() {
         }    
     }
     while(check.anotherEmployee === "Yes");
+    iterateArr(teamArr);
 };
 //Employee properties
 function inputName() {
