@@ -4,10 +4,11 @@ const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
 const GenerateHTML = require("./templates/generateHTML.js");
+const fs = require("fs");
 
 //Declare variables
 const teamArr = [];
-let teamHTML;
+let teamHTML = "";
 
 //Call functions
 init();
@@ -48,6 +49,7 @@ async function init() {
     }
     while(check.anotherEmployee === "Yes");
     iterateArr(teamArr);
+    createPage(teamHTML);
 };
 //Employee properties
 function inputName() {
@@ -127,4 +129,18 @@ function iterateArr(arr) {
         teamHTML += memberHTML;
     }
     console.log(teamHTML);
+};
+//assigns individual teamHtml to mainHTML and creates a .html file
+function createPage(html) {
+    let finalHTML = GenerateHTML.createMainHTML(html);
+    fs.writeFile("teamProfile.html", finalHTML, function(err) {
+
+        if (err) {
+          return console.log(err);
+        }
+      
+        console.log("Succesfully create html");
+      
+      });
+      
 }
