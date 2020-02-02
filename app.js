@@ -3,22 +3,17 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
-// const GenerateHTML = require("./templates/generateHTML.js");
+const GenerateHTML = require("./templates/generateHTML.js");
 
 //Declare variables
 const teamArr = [];
+let teamHTML = ``;
 
 //Call functions
 init();
 
 
 //Functions
-function iterateArr(arr) {
-    for( let i = 0; i < arr.length; i++) {
-        console.log("iterateArr fx:");
-        console.log(arr[i]);
-    }
-}
 async function init() {
     let check = "Yes";
     do{
@@ -125,3 +120,13 @@ function addEmployee() {
     }]);
     return anotherEmployee;
 };
+//iterates through array of user inputs
+function iterateArr(arr) {
+    for( let i = 0; i < arr.length; i++) {
+        // console.log("iterateArr fx:", arr.[i]);
+        // console.log(arr[i]);
+        let memberHTML = GenerateHTML.createMessage(arr[i]);
+        teamHTML = teamHTML + memberHTML;
+    }
+    console.log(teamHTML);
+}

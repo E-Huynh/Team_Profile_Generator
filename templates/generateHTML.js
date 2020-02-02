@@ -48,8 +48,12 @@ function createMessage(obj){
           <p>${ obj.email }</p>
         </div>
       </article>
-</div>`
+</div>\n`
 }
 
-module.exports = createMainHTML;
-module.exports = createMessage;
+module.exports = {
+    createMainHTML: createMainHTML,
+    createMessage: createMessage
+};
+
+
