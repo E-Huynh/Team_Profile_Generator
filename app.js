@@ -127,7 +127,6 @@ function iterateArr(arr) {
         let memberHTML = GenerateHTML.createMessage(arr[i]);
         teamHTML += memberHTML;
     }
-    console.log(teamHTML);
 };
 //assigns individual teamHtml to mainHTML and creates a .html file in outputs folder
 function createPage(html) {
