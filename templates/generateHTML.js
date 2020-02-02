@@ -5,11 +5,11 @@ function createMainHTML(message){
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Hello Bulma!</title>
+        <title>Team Profile Generator</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         <style>
-            /* styles go here */
+            /* styles go here if needed */
         </style>
       </head>
       <body>
@@ -38,14 +38,14 @@ function createMainHTML(message){
 function createMessage(obj){
     return `<div class="column is-one-third">
     <article class="message">
-        <div class="message-header">
-          <p>${ obj.name }</p>
-          <button class="delete" aria-label="delete"></button>
+        <div class="message-header is-block">
+          <h1>${ obj.name }</h1>
+          <h2>${ obj.role }</h2>
         </div>
         <div class="message-body">
-          <p>${ obj.role }</p>
-          <p>${ obj.id }</p>
-          <p>${ obj.email }</p>
+          <p>ID: ${ obj.id }</p>
+          <p>Email: ${ obj.email }</p>
+          <p>Specific data by role</p>
         </div>
       </article>
 </div>\n`

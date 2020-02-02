@@ -13,7 +13,6 @@ let teamHTML = "";
 //Call functions
 init();
 
-
 //Functions
 async function init() {
     let check = "Yes";
