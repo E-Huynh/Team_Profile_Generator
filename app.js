@@ -7,7 +7,7 @@ const GenerateHTML = require("./templates/generateHTML.js");
 
 //Declare variables
 const teamArr = [];
-let teamHTML = ``;
+let teamHTML;
 
 //Call functions
 init();
@@ -120,13 +120,11 @@ function addEmployee() {
     }]);
     return anotherEmployee;
 };
-//iterates through array of user inputs
+//iterates through array of user inputs and creates an html string
 function iterateArr(arr) {
     for( let i = 0; i < arr.length; i++) {
-        // console.log("iterateArr fx:", arr.[i]);
-        // console.log(arr[i]);
         let memberHTML = GenerateHTML.createMessage(arr[i]);
-        teamHTML = teamHTML + memberHTML;
+        teamHTML += memberHTML;
     }
     console.log(teamHTML);
 }
