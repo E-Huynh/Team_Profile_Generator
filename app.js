@@ -10,6 +10,8 @@ const fs = require("fs");
 const teamArr = [];
 let teamHTML = "";
 
+
+
 //Call functions
 init();
 
@@ -47,42 +49,38 @@ async function init() {
         }    
     }
     while(check.anotherEmployee === "Yes");
+    console.log(teamArr);
     iterateArr(teamArr);
     createPage(teamHTML);
-};
+}
 //Employee properties
-function inputName() {
+function inputName(a,b) {
     const name = inquirer.prompt([{
         type: "input",
         message: "Enter employee's full name.",
         name: "name",
-        // validate: function validateName(name){
-        //     switch(name) {
-        //         case "":
-        //             return name !== '';
-        //         default:
-        //             break;
-        //     }
-        // }
+        validate: validateAlphaAndSpace
     }]);
     return name;
-};
+}
 function inputId() {
     const id = inquirer.prompt([{
         type: "input",
         message: "Enter employee's ID.",
-        name: "id"
+        name: "id",
+        validate: validateNumber
     }]);
     return id;
-};
+}
 function inputEmail() {
     const email = inquirer.prompt([{
         type: "input",
         message: "Enter employee's email.",
-        name: "email"
+        name: "email",
+        validate: validateEmail
     }]);
     return email;
-};
+}
 function inputRole() {
     const role = inquirer.prompt([{
         type: 'list',
@@ -91,34 +89,37 @@ function inputRole() {
         choices: ['Manager', 'Engineer', 'Intern']
     }]);
     return role;
-};
+}
 //Manager properties
 function inputOffice() {
     const office = inquirer.prompt([{
         type: "input",
         message: "Enter employee's office number.",
-        name: "office"
+        name: "office",
+        validate: validateNumber
     }]);
     return office;
-};
+}
 //Engineer properties
 function inputUsername() {
     const username = inquirer.prompt([{
         type: "input",
         message: "Enter employee's Github Username.",
-        name: "username"
+        name: "username",
+        validate: validateNotEmpty
     }]);
     return username;
-};
+}
 //Intern properties
 function inputSchool() {
     const school = inquirer.prompt([{
         type: "input",
         message: "Enter employee's school.",
-        name: "school"
+        name: "school",
+        validate: validateAlphaAndSpace
     }]);
     return school;
-};
+}
 //While loop check
 function addEmployee() {
     const anotherEmployee = inquirer.prompt([{
@@ -128,14 +129,14 @@ function addEmployee() {
         choices: ['Yes', 'No']
     }]);
     return anotherEmployee;
-};
+}
 //iterates through array of user inputs and creates an html string
 function iterateArr(arr) {
     for( let i = 0; i < arr.length; i++) {
         let memberHTML = GenerateHTML.createMessage(arr[i]);
         teamHTML += memberHTML;
     }
-};
+}
 //assigns individual teamHtml to mainHTML and creates a .html file in outputs folder
 function createPage(html) {
     let finalHTML = GenerateHTML.createMainHTML(html);
@@ -145,4 +146,47 @@ function createPage(html) {
         }     
         console.log("Succesfully create html");   
       });   
+}
+//
+function validateAlphaAndSpace(value) {
+    let pattern = /^[a-zA-Z ]*$/;
+    if(value.search(pattern) !== -1 && value.length > 0) {
+        return true;
+    }
+    else{
+        console.log("\nMust be alpha characters");
+        return false;
+    }
+}
+//
+function validateNumber(value) {
+    let pattern = /^\d+$/;
+    if(value.search(pattern) !== -1 && value.length > 0) {
+        return true;
+    }
+    else{
+        console.log("\nMust be a number");
+        return false;
+    }
+}
+//
+function validateNotEmpty(value) {
+    if(value.length > 0) {
+        return true;
+    }
+    else{
+        console.log("\nNo value entered");
+        return false;
+    }
+}
+//
+function validateEmail(value) {
+    let pattern = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if(value.search(pattern) !== -1 && value.length > 0) {
+        return true;
+    }
+    else{
+        console.log("\nMust be in email format (ie. test@gmail.com");
+        return false;
+    }
 }
