@@ -37,26 +37,26 @@ function createMainHTML(message){
 //Pass an object from teamArr using a loop to generated the message HTML for each obj.
 function createMessage(obj){
     let specificInfo;
-    switch(obj.role) {
+    switch(obj.getRole()) {
         case "Manager":
-            specificInfo = `Office number: ${ obj.officeNumber }`;
+            specificInfo = `Office number: ${ obj.getOfficeNumber() }`;
             break;
         case "Engineer":
-            specificInfo = `Github username: ${ obj.github }`;
+            specificInfo = `Github username: ${ obj.getGithub() }`;
             break;
         case "Intern":
-            specificInfo = `School: ${ obj.school }`;
+            specificInfo = `School: ${ obj.getSchool() }`;
             break;
     }
     return `<div class="column is-one-third">
     <article class="message">
         <div class="message-header is-block">
-          <p class="is-size-3">${ obj.name }</p>
-          <p class="is-size-5">${ obj.role }</p>
+          <p class="is-size-3">${ obj.getName() }</p>
+          <p class="is-size-5">${ obj.getRole() }</p>
         </div>
         <div class="message-body">
-          <p>ID: ${ obj.id }</p>
-          <p>Email: ${ obj.email }</p>
+          <p>ID: ${ obj.getId() }</p>
+          <p>Email: ${ obj.getEmail() }</p>
           <p>${ specificInfo }</p>
         </div>
       </article>
