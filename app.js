@@ -22,6 +22,8 @@ async function init() {
         try {
             //Gets Employee class info
             let { name } = await inputName();
+            //Formats the name to capitalize the first letter of each word
+            name = titleCase(name);
             let { id } = await inputId();
             let { email } = await inputEmail();
             let { role } = await inputRole();
