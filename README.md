@@ -49,10 +49,10 @@ Generate a .HTML file of team members after user inputs employee info into node 
 ## Instructions
 After installation, run node app.js in the Terminal. The CLI will prompt you for employee inputs. After inputs a prompt will ask if you want to add another employee. Select "Yes" to add additional inputs for employees. Once all employees have been added, selecting "No" will end the prompts and generate a teamProfile.html file in the outputs folder. Open this file to view the team.
 ## Technologies
-  * Bulma
-  * Node.js
-  * Inquirer
-  * Fs
+  * (Bulma)[https://bulma.io/]
+  * (Node.js)[https://nodejs.org/en/]
+  * (Inquirer)[https://www.npmjs.com/package/inquirer]
+  * (File System)[https://nodejs.org/api/fs.html]
   * Test Driven Development
 ## Reported bugs
   * validateNumbers function checks input value against existing ID inputs. This can lead to an error if the office number inputted is equal to an existing ID. Solution: create secondary function for officenumber validation.
