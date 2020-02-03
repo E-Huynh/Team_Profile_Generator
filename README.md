@@ -42,18 +42,18 @@ Generate a .HTML file of team members after user inputs employee info into node 
    
    * Names will automatically be capitalized
         
-## Technologies
-  * Bulma
-  * Node.js
-  * Inquirer
-  * Fs
-  * Test Driven Development
 ## Installation
 1. Save files to local machine
 2. Open Terminal on app.js
 3. Run NPM install
 ## Instructions
 After installation, run node app.js in the Terminal. The CLI will prompt you for employee inputs. After inputs a prompt will ask if you want to add another employee. Select "Yes" to add additional inputs for employees. Once all employees have been added, selecting "No" will end the prompts and generate a teamProfile.html file in the outputs folder. Open this file to view the team.
+## Technologies
+  * Bulma
+  * Node.js
+  * Inquirer
+  * Fs
+  * Test Driven Development
 ## Images
 ### GIF showing functionality of the app
 ![Functionality of app](https://github.com/E-Huynh/Team_Profile_Generator/blob/master/Images%20and%20GIFs/Team%20Profile%20Generator%20Functionality.gif?raw=true)
