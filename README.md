@@ -54,6 +54,8 @@ After installation, run node app.js in the Terminal. The CLI will prompt you for
   * Inquirer
   * Fs
   * Test Driven Development
+## Reported bugs
+  * validateNumbers function checks input value against existing ID inputs. This can lead to an error if the office number inputted is equal to an existing ID. Solution: create secondary function for officenumber validation.
 ## Images
 ### GIF showing functionality of the app
 ![Functionality of app](https://github.com/E-Huynh/Team_Profile_Generator/blob/master/Images%20and%20GIFs/Team%20Profile%20Generator%20Functionality.gif?raw=true)
