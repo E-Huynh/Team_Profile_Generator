@@ -60,6 +60,6 @@ After installation, run node app.js in the Terminal. The CLI will prompt you for
 ### .HTML output from GIF
 ![teamProfile page](https://github.com/E-Huynh/Team_Profile_Generator/blob/master/Images%20and%20GIFs/teamProfile%20image.png?raw=true)
 ### Example of format with larger team
-![teamProfile page](https://github.com/E-Huynh/Team_Profile_Generator/blob/master/Images%20and%20GIFs/teamProfile%20-%207%20members.png?raw=true)
+![teamProfile page with 7 team members](https://github.com/E-Huynh/Team_Profile_Generator/blob/master/Images%20and%20GIFs/teamProfile%20-%207%20members.png?raw=true)
 ### NPM Run Test Results
-![teamProfile page](https://github.com/E-Huynh/Team_Profile_Generator/blob/master/Images%20and%20GIFs/teamProfile%20-%207%20members.png?raw=true)
+![NPM run test results](https://github.com/E-Huynh/Team_Profile_Generator/blob/master/Images%20and%20GIFs/NPM%20Run%20Test.gif?raw=true)
