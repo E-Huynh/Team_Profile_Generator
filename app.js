@@ -49,12 +49,11 @@ async function init() {
         }    
     }
     while(check.anotherEmployee === "Yes");
-    console.log(teamArr);
     iterateArr(teamArr);
     createPage(teamHTML);
 }
 //Employee properties
-function inputName(a,b) {
+function inputName() {
     const name = inquirer.prompt([{
         type: "input",
         message: "Enter employee's full name.",
@@ -199,9 +198,19 @@ function compareId(teamArray, value) {
         // Filter will return the team member that matches the below condition when true
         return teamMember.id == value;
     });
-    console.log('matchedPairs: ', matchedPairs);
     if(matchedPairs.length > 0){
         console.log('\nId already Exists.');
         return false;
     } else return true;
+}
+//
+function titleCase(str) {
+   var splitStr = str.toLowerCase().split(' ');
+   for (var i = 0; i < splitStr.length; i++) {
+       // You do not need to check if i is larger than splitStr length, as your for does that for you
+       // Assign it back to the array
+       splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+   }
+   // Directly return the joined string
+   return splitStr.join(' '); 
 }
