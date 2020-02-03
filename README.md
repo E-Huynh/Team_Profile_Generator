@@ -34,12 +34,19 @@
     *Github Username may contain any type of characters*
     
     *School Name may contain only alpha characters and spaces*
+    
+   * A confirmation to add new team member will be prompt at the end of each set of inputs
+   
+   * Selecting "No" to adding another team member will end the input prompts and create a teamProfile.html file in the outputs folder
+   
+   * Names will automatically be capitalized
         
 ## Technologies
   * Bulma
   * Node.js
   * Inquirer
   * Fs
+  * Test Driven Development
 ## Installation
 1. Save files to local machine
 2. Open Terminal on app.js
