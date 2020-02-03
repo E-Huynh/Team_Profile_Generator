@@ -1,5 +1,6 @@
-# [Team Profile Generator]()
+# [Team Profile Generator](https://github.com/E-Huynh/Team_Profile_Generator)
 ## Purpose
+Generate a .HTML file of team members after user inputs employee info into node using a command line input.
 ## Functionality
   * Employee class is assign for every team member entered
   
