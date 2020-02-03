@@ -147,7 +147,7 @@ function createPage(html) {
         console.log("Succesfully create html");   
       });   
 }
-//
+//Checks that the input only contains alpha characters and spaces
 function validateAlphaAndSpace(value) {
     let pattern = /^[a-zA-Z ]*$/;
     if(value.search(pattern) !== -1 && value.length > 0) {
@@ -158,18 +158,21 @@ function validateAlphaAndSpace(value) {
         return false;
     }
 }
-//
+//Checks that the input is only a number
 function validateNumber(value) {
     let pattern = /^\d+$/;
     if(value.search(pattern) !== -1 && value.length > 0) {
-        return true;
+        if(teamArr.length === 0) {
+            return true;
+        }
+        return compareId(teamArr, value);
     }
     else{
         console.log("\nMust be a number");
         return false;
     }
 }
-//
+//Check that the input in not empty
 function validateNotEmpty(value) {
     if(value.length > 0) {
         return true;
@@ -179,7 +182,7 @@ function validateNotEmpty(value) {
         return false;
     }
 }
-//
+//validates that the input is in email format
 function validateEmail(value) {
     let pattern = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     if(value.search(pattern) !== -1 && value.length > 0) {
@@ -189,4 +192,16 @@ function validateEmail(value) {
         console.log("\nMust be in email format (ie. test@gmail.com");
         return false;
     }
+}
+//compares existing inputted IDs with the user input
+function compareId(teamArray, value) {
+    let matchedPairs = teamArray.filter(function(teamMember){
+        // Filter will return the team member that matches the below condition when true
+        return teamMember.id == value;
+    });
+    console.log('matchedPairs: ', matchedPairs);
+    if(matchedPairs.length > 0){
+        console.log('\nId already Exists.');
+        return false;
+    } else return true;
 }
