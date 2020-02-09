@@ -1,4 +1,14 @@
-# [Team Profile Generator](https://github.com/E-Huynh/Team_Profile_Generator)
+# Team Profile Generator
+
+[Github Repo](https://github.com/E-Huynh/Team_Profile_Generator)
+
+## Contact
+
+Erik.W.Huynh@Gmail.com
+
+[LinkedIn](https://www.linkedin.com/in/erik-huynh-228321196/)
+
+[Portfolio](https://e-huynh.github.io/updated_portfolio/)
 ## Purpose
 Generate a .HTML file of team members after user inputs employee info into node using a command line input.
 ## Functionality
