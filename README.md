@@ -8,7 +8,7 @@ Erik.W.Huynh@Gmail.com
 
 [LinkedIn](https://www.linkedin.com/in/erik-huynh-228321196/)
 
-[Portfolio](https://e-huynh.github.io/updated_portfolio/)
+[Portfolio](https://e-huynh.github.io/portfolio-gram/)
 ## Purpose
 Generate a .HTML file of team members after user inputs employee info into node using a command line input.
 ## Functionality
